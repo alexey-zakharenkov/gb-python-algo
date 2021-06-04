@@ -84,7 +84,7 @@ def pick_pivot(arr):
         # В этом случае мы обращаемся к простой простой функции медианы.
         # Поскольку мы выполняем её только для списка из пяти или менее элементов, она не 
         # зависит от длины входных данных и может считаться постоянным временем.
-        return simple_median(arr)
+        return find_median_simple(arr)
 
     # Сначала разделим arr на группы по 5 элементов. O(n)
     chunks = chunked(arr, 5)
@@ -119,7 +119,7 @@ if __name__ == "__main__":
     a = [random.randint(LOWER_BOUND, UPPER_BOUND) for _ in range(SIZE)]
     print(a)
 
-    print(f"Медиана = {find_median(a)}")
+    print(f"Медиана = {find_median(a, pick_pivot)}")
 
     insertion_sort(a)  # Используется только для контроля правильности ответа
     print(f"Контроль правильности. Медиана через сортировку = {a[len(a)//2]}")
